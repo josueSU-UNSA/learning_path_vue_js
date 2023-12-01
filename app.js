@@ -11,7 +11,7 @@ app.mount('#app')
 Vue.createApp({
     data() {
         return {
-        NOTHING: "_blank"
+            NOTHING: "_blank"
     }
 }
 }).mount('#specialUrl')
@@ -28,6 +28,19 @@ Vue.createApp({
         toogle_button_pic(){
             this.showed=!this.showed
             this.showed_message= this.showed? "Hide":"Show"
+            this.show_hide= this.showed_paragraph? "Hide":"Show"
+            
+            let str_concat='';
+            
+            if (this.showed_message =='Hide'){
+                str_concat='Showed';
+            }
+            else{
+                str_concat='Hidded';
+            }
+             
+            console.log("Img was: "+str_concat);
+
         }
     }
     }
@@ -43,7 +56,7 @@ Vue.createApp({
 Vue.createApp({
     data(){
         return{
-            show_paragraph:true,
+            showed_paragraph:true,
             show_hide:"Hide",
             num_clicks:1,
             bool_value: true
@@ -52,17 +65,31 @@ Vue.createApp({
     methods:{
         increase_num_clicks(){
             this.num_clicks++
+            console.log("Num clicks was increased and now It's: "+this.num_clicks);
         },
         decrease_num_clicks(){
             this.num_clicks--
+            console.log("Num clicks was decreased and now It's: "+this.num_clicks);
         },
         define_num_clicks(num){
             this.num_clicks=num
+            console.log("Num clicks was defined and now It's: "+this.num_clicks);
         },
 
         toogle_show_hide_paragraph(){
-            this.show_paragraph=!this.show_paragraph
-            this.show_hide= this.show_paragraph? "Hide":"Show"
+            this.showed_paragraph=!this.showed_paragraph
+            this.show_hide= this.showed_paragraph? "Hide":"Show"
+            
+            let str_concat='';
+            
+            if (this.show_hide =='Hide'){
+                str_concat='Showed';
+            }
+            else{
+                str_concat='Hidded';
+            }
+             
+            console.log("Paragraph was: "+str_concat);
         }
 
 
